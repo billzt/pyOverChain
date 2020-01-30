@@ -10,7 +10,8 @@ import progressbar
 
 from pychain.core import pipeline_single, chr_separation
 
-def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, num_thread_blat:int, binary:str):
+def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, \
+    num_thread_blat:int, binary:str, noprogress=False):
     # separate chromosomes
     chr_separation.run(file_old=file_old, file_new=file_new, chr_map=chr_map)
 
@@ -31,16 +32,19 @@ def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, num_thre
         multi_res.append(pool.apply_async(pipeline_single.run, (args,)))
     
     # monitor
-    widgets = ['Running: ', progressbar.Counter(),\
-                ' chromosomes Finished', ' (', progressbar.Percentage(), ')', \
-                    progressbar.Bar(), progressbar.ETA()]
-    bar = progressbar.ProgressBar(widgets=widgets, max_value=len(chr_map)).start()
+    if noprogress is False:
+        widgets = ['Running: ', progressbar.Counter(),\
+                    ' chromosomes Finished', ' (', progressbar.Percentage(), ')', \
+                        progressbar.Bar(), progressbar.ETA()]
+        bar = progressbar.ProgressBar(widgets=widgets, max_value=len(chr_map)).start()
     while True:
         complete_count = sum([1 for x in multi_res if x.ready()])
         if complete_count == len(chr_map):
-            bar.finish()
+            if noprogress is False:
+                bar.finish()
             break
-        bar.update(complete_count)
+        if noprogress is False:
+            bar.update(complete_count)
         time.sleep(1)
     
     # Combine

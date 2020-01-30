@@ -35,6 +35,8 @@ def make_args():
         chromosomes', type=int, default=2)
     parser.add_argument('-p', '--num-threads-pblat', help='number of threads for pblat. \
         Only useful if pblat were available', type=int, default=2)
+    parser.add_argument('--disable-progress', help='Disable progress displaying. Useful if you want to \
+        run it in background', action='store_true')
     args = parser.parse_args()
     return args
 
@@ -74,7 +76,8 @@ def main():
 
     # run
     pipeline_multiple.run(file_old=args.old_genome, file_new=args.new_genome, chr_map=chr_map, \
-        num_parallel_chr=args.num_chromosome_tasks, num_thread_blat=args.num_threads_pblat, binary=blat_binary)
+        num_parallel_chr=args.num_chromosome_tasks, num_thread_blat=args.num_threads_pblat, \
+            binary=blat_binary, noprogress=args.disable_progress)
     
     # remove directories
     os.system("rm -rf pyChainTmp.*")

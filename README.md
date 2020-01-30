@@ -1,5 +1,5 @@
 # pyChain
-a python pipeline to generate chain files between different genome assemblies for LiftOver.
+a python pipeline to generate chain files between different genome assemblies for [LiftOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver).
 
 ## External Dependencies
 This pipeline can only be used under Linux.

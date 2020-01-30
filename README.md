@@ -59,8 +59,8 @@ chr3    chr3
 ```
 
 ## Some useful documents
-[Document from kent](https://hgwdev.gi.ucsc.edu/~kent/src/unzipped/hg/doc/liftOver.txt)
-[Minimal Steps For LiftOver](http://genomewiki.ucsc.edu/index.php/Minimal_Steps_For_LiftOver)
+* [Document from kent](https://hgwdev.gi.ucsc.edu/~kent/src/unzipped/hg/doc/liftOver.txt)
+* [Minimal Steps For LiftOver](http://genomewiki.ucsc.edu/index.php/Minimal_Steps_For_LiftOver)
 
 ## Warning
 This pipeline can only liftOver ***different assemblies*** of ***the same species***.

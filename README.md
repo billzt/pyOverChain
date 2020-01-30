@@ -30,6 +30,7 @@ python3 setup.py install
 ## Usage
 ```
 pychain [-h] [-v] [-n NUM_CHROMOSOME_TASKS] [-p NUM_THREADS_PBLAT]
+               [--disable-progress]
                old_genome new_genome chr_map
 
 positional arguments:
@@ -46,6 +47,8 @@ optional arguments:
   -p NUM_THREADS_PBLAT, --num-threads-pblat NUM_THREADS_PBLAT
                         number of threads for pblat. Only useful if pblat were
                         available (default: 2)
+  --disable-progress    Disable progress displaying. Useful if you want to run
+                        it in background (default: False)
 ```
 
 ## chromosome-mapping-file

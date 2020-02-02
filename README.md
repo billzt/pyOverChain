@@ -17,7 +17,7 @@ These softwares must be in your system PATH
 ## Installation
 ### Via pip (release only)
 ```
-pip3 install pychain
+pip3 install pyoverchain
 ```
 
 ### Via Github

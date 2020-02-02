@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-from pychain.core import version
+from pyoverchain.core import version
 
-setup(name='pychain',
+setup(name='pyoverchain',
       version=version.get(),
       description="a python pipeline to generate chain files between different genome assemblies for LiftOver",
       long_description=__doc__,
@@ -18,7 +18,7 @@ setup(name='pychain',
       keywords='genome bioinformatics assembly BLAT LiftOver',
       author='Tao Zhu',
       author_email='taozhu@mail.bnu.edu.cn',
-      url='https://github.com/billzt/pyChain',
+      url='https://github.com/billzt/pyOverChain',
       license='MIT',
       packages=find_packages(),
       include_package_data=True,
@@ -28,7 +28,7 @@ setup(name='pychain',
       ],
       entry_points={
           'console_scripts': [
-              'pychain = pychain.cmd.run:main',
+              'pyoverchain = pyoverchain.cmd.run:main',
           ]
       }
 )

@@ -8,7 +8,7 @@ from glob import glob
 
 import progressbar
 
-from pychain.core import pipeline_single, chr_separation
+from pyoverchain.core import pipeline_single, chr_separation
 
 def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, \
     num_thread_blat:int, binary:str, noprogress=False):
@@ -16,7 +16,7 @@ def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, \
     chr_separation.run(file_old=file_old, file_new=file_new, chr_map=chr_map)
 
     # distribute tasks
-    print(f'[pychain:{datetime.datetime.now()}] Begin building chains by {num_parallel_chr} parallel tasks...', \
+    print(f'[pyoverchain:{datetime.datetime.now()}] Begin building chains by {num_parallel_chr} parallel tasks...', \
         file=sys.stderr)
     pool = mp.Pool(processes=num_parallel_chr)
     multi_res = []
@@ -48,8 +48,8 @@ def run(file_old:str, file_new:str, chr_map:dict, num_parallel_chr:int, \
         time.sleep(1)
     
     # Combine
-    print(f'[pychain:{datetime.datetime.now()}] Combining Results...', file=sys.stderr)
-    chain_files = ' '.join(glob(f'pyChainTmp.NewGenome.over.{file_new}/*.chain'))
+    print(f'[pyoverchain:{datetime.datetime.now()}] Combining Results...', file=sys.stderr)
+    chain_files = ' '.join(glob(f'pyOverChainTmp.NewGenome.over.{file_new}/*.chain'))
     os.system(f'cat {chain_files} >{file_old}.to.{file_new}.over.chain')
 
 

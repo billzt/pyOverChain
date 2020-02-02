@@ -22,14 +22,14 @@ pip3 install pyoverchain
 
 ### Via Github
 ```
-git clone https://github.com/billzt/pyChain.git
-cd pyChain
+git clone https://github.com/billzt/pyOverChain.git
+cd pyOverChain
 python3 setup.py install
 ```
 
 ## Usage
 ```
-pychain [-h] [-v] [-n NUM_CHROMOSOME_TASKS] [-p NUM_THREADS_PBLAT]
+pyoverchain [-h] [-v] [-n NUM_CHROMOSOME_TASKS] [-p NUM_THREADS_PBLAT]
                [--disable-progress]
                old_genome new_genome chr_map
 

@@ -23,14 +23,14 @@ def run(args:dict):
         chr_old=args['chr_old'], chr_new=args['chr_new'], logfile=logfile)
     
     print(f'[pyoverchain:{datetime.datetime.now()}] Begin chainMergeSort...', file=flog, flush=True)
-    chainMergeSort.run(file_new=args['file_new'], chr_new=args['chr_new'], logfile=logfile)
+    chainMergeSort.run(file_new=args['file_new'], chr_new=args['chr_new'], file_old=args['file_old'], logfile=logfile)
 
     print(f'[pyoverchain:{datetime.datetime.now()}] Begin chainNet...', file=flog, flush=True)
     chainNet.run(file_old=args['file_old'], file_new=args['file_new'], \
-        chr_new=args['chr_new'], logfile=logfile)
+        chr_new=args['chr_new'], chr_old=args['chr_old'], logfile=logfile)
 
     print(f'[pyoverchain:{datetime.datetime.now()}] Begin netChainSubset...', file=flog, flush=True)
-    netChainSubset.run(file_new=args['file_new'], chr_new=args['chr_new'], logfile=logfile)
+    netChainSubset.run(file_new=args['file_new'], chr_new=args['chr_new'], file_old=args['file_old'], chr_old=args['chr_old'], logfile=logfile)
     
 
 if __name__ == "__main__":
